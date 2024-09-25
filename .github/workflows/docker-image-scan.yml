@@ -41,6 +41,9 @@ jobs:
       - name: Scan Docker image for vulnerabilities
         run: trivy image --format sarif --output trivy-results.sarif ${{ secrets.DOCKER_USERNAME }}/my-trivy-image:latest
 
+      - name: Print SARIF file
+        run: cat trivy-results.sarif
+
       # 6. 위험, 크리티컬 개수를 변수로 지정
       - name: Check for critical/high vulnerabilities
         id: scan
