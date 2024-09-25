@@ -1,7 +1,7 @@
 # [ Trivy : Docker Image Vulnerability 진단 ]
 
 ## 🧹 프로젝트 개요
-Docker 이미지 취약점 진단 도구인 Trivy에 탐구하고, **Trivy와 GitHub Actions**를 활용해 Docker 이미지를 빌드할 때 자동으로 취약점 검사를 수행하고 스캔 결과를 GitHub의 Code scanning에 리포트하는 워크플로우를 구성했습니다.
+Docker 이미지 취약점 진단 도구인 Trivy에 탐구하고, **Trivy와 GitHub Actions**를 활용해 Docker 이미지를 빌드할 때 자동으로 취약점 검사를 수행하고 스캔 결과를 **GitHub의 Code scanning에 리포트**하는 워크플로우를 구성했습니다.
 
 <br>
 
