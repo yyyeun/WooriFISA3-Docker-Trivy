@@ -51,8 +51,8 @@ jobs:
       - name: Check for critical/high vulnerabilities
         id: scan
         run: |
-          critical=$(jq '.runs[].results[] | select(.properties."security-severity" >= 9.0)' trivy-results.sarif | wc -l)
-          high=$(jq '.runs[].results[] | select(.properties."security-severity" >= 7.0 and .properties."security-severity" < 9.0)' trivy-results.sarif | wc -l)
+          critical=$(jq '[.Results[].Vulnerabilities[] | select(.Severity == "CRITICAL")] | length' trivy-results.json)
+          high=$(jq '[.Results[].Vulnerabilities[] | select(.Severity == "HIGH")] | length' trivy-results.json)
           echo "Critical vulnerabilities: $critical"
           echo "High vulnerabilities: $high"
           echo "::set-output name=critical_count::$critical"
