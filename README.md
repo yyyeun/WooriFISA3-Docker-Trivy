@@ -37,8 +37,9 @@ Docker 이미지 취약점 진단 도구인 Trivy에 탐구하고, **Trivy와 Gi
     - IaC(Infrastructure as Code): 잘못된 인프라 설정을 검사
     - 민감한 정보와 비밀: 이미지나 리소스에서 중요한 정보나 비밀이 노출된 경우 탐지
 
+<br>
 
-### Trivy가 스캔 가능한 artifact
+### 🎗 Trivy가 스캔 가능한 artifact
 1. Container image : Docker 및 기타 컨테이너 이미지에 대한 취약점 스캔
 2. File system 및 Rootfs: 파일 시스템과 루트 파일 시스템의 보안 문제 탐지
 3. Git Repository: 코드베이스의 보안 문제와 잘못된 설정을 확인
@@ -77,8 +78,7 @@ trivy image <Image ID or Image Name>
 <img src="https://github.com/user-attachments/assets/bf1bdb9e-488e-45d7-a017-a34b6dfa830e" width="800">
 </div><br>
 
-[Docker 이미지 최적화](https://github.com/yyyeun/WooriFISA3-Docker-ImageOptimization) 프로젝트에서 [생성한 이미지](https://hub.docker.com/r/gymlet/spring_optimization/tags)의 취약점을 검사한 모습입니다.
-
+[앞서 진행한 Docker 이미지 최적화](https://github.com/yyyeun/WooriFISA3-Docker-ImageOptimization) 프로젝트에서 [생성한 이미지](https://hub.docker.com/r/gymlet/spring_optimization/tags)의 취약점을 검사한 모습입니다.
 
 <br> 
 
@@ -89,7 +89,7 @@ GitHub Actions yml 파일을 생성하고, 자동화할 동작들을 정의합�
 <img src="https://github.com/user-attachments/assets/4d87a4bb-0da1-4caa-86d5-91e707752c96" width="600">
 </div><br>
 
-```
+```yaml
 # 1. Repository 체크아웃
 - uses: actions/checkout@v4
 
@@ -151,4 +151,4 @@ GitHub Actions yml 파일을 생성하고, 자동화할 동작들을 정의합�
 </div><br>
 
 ## 🧵 결론 및 고찰
-> Trivy를 사용해 앞서 최적화를 진행한 Docker 이미지에 대한 취약점을 직접 진단함으로써 보안 강화의 중요성을 재고했으며, GitHub Actions와 Code scanning 등 GitHub에서 제공하는 유용한 기능들을 활용해볼 수 있었습니다.
+> Trivy를 사용해 [앞서 최적화를 진행](https://github.com/yyyeun/WooriFISA3-Docker-ImageOptimization)한 Docker 이미지에 대한 취약점을 직접 진단함으로써 보안 강화의 중요성을 재고했으며, GitHub Actions와 Code scanning 등 GitHub에서 제공하는 유용한 기능들을 활용해 볼 수 있었습니다.
