@@ -3,8 +3,12 @@ name: Docker Image Build and Scan
 on:
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - "README.md"
   pull_request:
     branches: [ "main" ]
+    paths-ignore:
+      - "README.md"
 
   workflow_dispatch:
 
@@ -40,13 +44,32 @@ jobs:
       # 5. Docker 이미지 취약점 스캔
       - name: Scan Docker image for vulnerabilities
         run: trivy image --format sarif --output trivy-results.sarif ${{ secrets.DOCKER_USERNAME }}/my-trivy-image:latest
+
+      # 6. 위험, 크리티컬 개수를 변수로 지정
+      - name: Check for critical/high vulnerabilities
+        id: scan
+        run: |
+          critical=$(jq '.runs[].results[] | select(.level == "error" and .ruleId == "CRITICAL")' trivy-results.sarif | wc -l)
+          high=$(jq '.runs[].results[] | select(.level == "error" and .ruleId == "HIGH")' trivy-results.sarif | wc -l)
+          echo "::set-output name=critical_count::$critical"
+          echo "::set-output name=high_count::$high"
+
+      # 7. 위험, 크리티컬 개수를 슬랙으로 전송
+      - name: Send Slack notification
+        if: steps.scan.outputs.critical_count != '0' || steps.scan.outputs.high_count != '0'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data \
+          '{"text":"도커 이미지 파일 취약점 - 🚨Critical: '${{ steps.scan.outputs.critical_count }}', ♨High: '${{ steps.scan.outputs.high_count }}'"}' \
+          $SLACK_WEBHOOK_URL
         
-      # 6. Docker Hub에 이미지 푸시 (선택 사항)
+      # 8. Docker Hub에 이미지 푸시 (선택 사항)
       - name: Push Docker image to Docker Hub
         if: success()
         run: docker push ${{ secrets.DOCKER_USERNAME }}/my-trivy-image:latest
           
-      # 7. 취약점 검사 결과를 GitHub Code Scanning으로 업로드
+      # 9. 취약점 검사 결과를 GitHub Code Scanning으로 업로드
       - name: Upload Trivy scan results to GitHub
         uses: github/codeql-action/upload-sarif@v3
         with:
