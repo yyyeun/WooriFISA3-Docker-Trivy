@@ -38,9 +38,14 @@ jobs:
           sudo apt-get install trivy
           
       # 5. Docker 이미지 취약점 스캔
-      - name: Scan Docker image for vulnerabilities
+      - name: Scan Docker image for vulnerabilities(sarif)
         run: trivy image --format sarif --output trivy-results.sarif ${{ secrets.DOCKER_USERNAME }}/my-trivy-image:latest
 
+      - name: Scan Docker image for vulnerabilities (JSON)
+        run: trivy image --format json --output trivy-results.json ${{ secrets.DOCKER_USERNAME }}/my-trivy-image:latest
+
+      - name: Print json file
+        run: cat trivy-results.json
 
       # 6. 위험, 크리티컬 개수를 변수로 지정
       - name: Check for critical/high vulnerabilities
