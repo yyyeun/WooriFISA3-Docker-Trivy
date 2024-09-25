@@ -53,7 +53,7 @@ Docker 설치가 선행되어야 하며, 빌드한 이미지를 업로드할 Doc
 <br>
 
 ### 1. Installing Trivy
-[Official docs](https://aquasecurity.github.io/trivy/v0.19.2/getting-started/installation/)를 참고해 자신의 OS에 맞는 install 과정 수행
+[Official docs](https://aquasecurity.github.io/trivy/v0.19.2/getting-started/installation/)를 참고해 자신의 OS에 맞는 install 과정을 수행합니다.
 ```
 sudo apt-get install wget apt-transport-https gnupg lsb-release
 
