@@ -135,6 +135,9 @@ GitHub Actions yml 파일을 생성하고, 자동화할 동작들을 정의합�
 
 ## 🎨 최종 실행 결과
 
+`main` 브랜치로 push 또는 Pull Request 동작이 수행되면 GitHub Actions가 수행됩니다.<br><br>
+정상적으로 완료되면 Docker Hub에 빌드된 이미지가 push되며, GitHub Security 탭의 [Code scanning](https://github.com/yyyeun/WooriFISA3-Docker-Trivy/security/code-scanning)에 진단된 취약점이 반영됩니다.<br<br>
+
 <div align="center">
 <img src="https://github.com/user-attachments/assets/e22b10d4-a30a-4bac-b200-3b4142cd8723" width="700">
 </div><br>
@@ -143,10 +146,9 @@ GitHub Actions yml 파일을 생성하고, 자동화할 동작들을 정의합�
 <img src="https://github.com/user-attachments/assets/9ccfdedd-c7ae-4ef9-821f-90efdc82adc0" width="700">
 </div><br>
 
-`main` 브랜치로 push 또는 Pull Request 동작이 수행되면 GitHub Actions가 수행됩니다.<br>
-정상적으로 완료되면 Code scanning 탭에 진단된 취약점이 반영됩니다.
-
-<br>
+<div align="center">
+<img src="https://github.com/user-attachments/assets/9b9bd929-8fed-41b5-b3e1-4445c1b3be13" width="700">
+</div><br>
 
 ## 🧵 결론 및 고찰
 > Trivy를 사용해 앞서 최적화를 진행한 Docker 이미지에 대한 취약점을 직접 진단함으로써 보안 강화의 중요성을 재고했으며, GitHub Actions와 Code scanning 등 GitHub에서 제공하는 유용한 기능들을 활용해볼 수 있었습니다.
