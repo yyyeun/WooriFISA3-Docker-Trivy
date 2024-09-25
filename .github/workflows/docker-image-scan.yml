@@ -11,7 +11,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write    # 저장소에 파일을 업로드할 수 있는 권한
+      security-events: write  # Code Scanning 결과를 업로드할 수 있는 권한
+      
     steps:
       # 1. Repository 체크아웃
       - uses: actions/checkout@v4
@@ -45,6 +48,6 @@ jobs:
           
       # 7. 취약점 검사 결과를 GitHub Code Scanning으로 업로드
       - name: Upload Trivy scan results to GitHub
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: trivy-results.sarif
