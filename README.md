@@ -38,7 +38,6 @@ Docker 이미지 취약점 진단 도구인 Trivy에 탐구하고, **Trivy와 Gi
     - IaC(Infrastructure as Code): 잘못된 인프라 설정을 검사
     - 민감한 정보와 비밀: 이미지나 리소스에서 중요한 정보나 비밀이 노출된 경우 탐지
 
-<br>
 
 ### Trivy가 스캔 가능한 artifact
 1. Container image : Docker 및 기타 컨테이너 이미지에 대한 취약점 스캔
@@ -141,10 +140,8 @@ GitHub Actions yml 파일을 생성하고, 자동화할 동작들을 정의합�
 <img src="https://github.com/user-attachments/assets/e22b10d4-a30a-4bac-b200-3b4142cd8723" width="700">
 </div><br>
 
-
 <div align="center">
-<img src="https://github.com/user-attachments/assets/9ccfdedd-c7ae-4ef9-821f-90efdc82adc0
-" width="700">
+<img src="https://github.com/user-attachments/assets/9ccfdedd-c7ae-4ef9-821f-90efdc82adc0" width="700">
 </div><br>
 
 `main` 브랜치로 push 또는 Pull Request 동작이 수행되면 GitHub Actions가 수행됩니다.<br>
