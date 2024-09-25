@@ -3,10 +3,6 @@
 ## 🧹 프로젝트 개요
 > Trivy 탐구 및 실습
 
-<div align="center">
-<img src="https://github.com/user-attachments/assets/981bb83c-7783-407f-b264-b7ca9425df2a" width="400">
-</div>
-
 <br>
 <h2 style="font-size: 25px;"> 👨‍👨‍👧‍👦💻 팀원 <br>
 <br>
@@ -20,6 +16,9 @@
 
 ## 🕶 About Trivy
 ### Trivy란
+<div align="center">
+<img src="https://github.com/user-attachments/assets/981bb83c-7783-407f-b264-b7ca9425df2a" width="400">
+</div><br>
 보안 취약점을 스캔하기 위한 도구로, Docker Hub와 같은 곳에서 이미지의 취약점을 찾는 데 사용할 수 있습니다.
 - 취약점 탐지
     - CVE(Common Vulnerabilities and Exposures): 알려진 보안 취약점을 탐지합니다.
@@ -56,11 +55,18 @@ sudo apt-get install trivy
 ```
 trivy image <Image ID or Image Name>
 ``` 
+<br><div align="center">
+<img src="https://github.com/user-attachments/assets/bf1bdb9e-488e-45d7-a017-a34b6dfa830e" width="460">
+</div><br>
+
+[도커 이미지 최적화](https://github.com/yyyeun/WooriFISA3-Docker-ImageOptimization) 프로젝트에서 생성한 [이미지](https://hub.docker.com/r/gymlet/spring_optimization/tags)의 취약점을 검사한 모습입니다.
+
 
 <br> 
 
 ## 🎇 Trivy 활용 예제 : 
 
+<br>
 
 ## 🎨 최종 실행 결과
 
