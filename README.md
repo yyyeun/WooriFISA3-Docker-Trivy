@@ -136,7 +136,7 @@ GitHub Actions yml 파일을 생성하고, 자동화할 동작들을 정의합�
 ## 🎨 최종 실행 결과
 
 `main` 브랜치로 push 또는 Pull Request 동작이 수행되면 GitHub Actions가 수행됩니다.<br><br>
-정상적으로 완료되면 Docker Hub에 빌드된 이미지가 push되며, GitHub Security 탭의 [Code scanning](https://github.com/yyyeun/WooriFISA3-Docker-Trivy/security/code-scanning)에 진단된 취약점이 반영됩니다.<br<br>
+정상적으로 완료되면 Docker Hub에 빌드된 이미지가 push되며, GitHub Security 탭의 [Code scanning](https://github.com/yyyeun/WooriFISA3-Docker-Trivy/security/code-scanning)에 진단된 취약점이 반영됩니다.<br><br>
 
 <div align="center">
 <img src="https://github.com/user-attachments/assets/e22b10d4-a30a-4bac-b200-3b4142cd8723" width="700">
