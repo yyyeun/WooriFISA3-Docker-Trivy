@@ -1,7 +1,7 @@
 # [ Trivy : Docker Image Vulnerability 진단 ]
 
 ## 🧹 프로젝트 개요
-Docker 이미지 취약점 진단 도구인 Trivy에 탐구하고, **Trivy와 GitHub Actions**를 활용해 Docker 이미지를 빌드할 때 자동으로 취약점 검사를 수행하고 스캔 결과를 GitHub의 Code scanning과 Slack에 리포트하는 워크플로우를 구성했습니다.
+Docker 이미지 취약점 진단 도구인 Trivy에 탐구하고, **Trivy와 GitHub Actions**를 활용해 Docker 이미지를 빌드할 때 자동으로 취약점 검사를 수행하고 스캔 결과를 GitHub의 Code scanning에 리포트하는 워크플로우를 구성했습니다.
 
 <br>
 
@@ -9,7 +9,6 @@ Docker 이미지 취약점 진단 도구인 Trivy에 탐구하고, **Trivy와 Gi
 - Ubuntu 22.04
 - Docker 27.3.1
 - Docker Hub
-- Slack
 
 <br>
 <h2 style="font-size: 25px;"> 👨‍👨‍👧‍👦💻 팀원 <br>
@@ -145,7 +144,7 @@ GitHub Actions yml 파일을 생성하고, 자동화할 동작들을 정의합�
 </div><br>
 
 `main` 브랜치로 push 또는 Pull Request 동작이 수행되면 GitHub Actions가 수행됩니다.<br>
-정상적으로 완료되면 Code scanning 탭에 진단된 취약점이 반영되며, Slack으로 Critical과 High에 해당하는 취약점이 리포트됩니다.
+정상적으로 완료되면 Code scanning 탭에 진단된 취약점이 반영됩니다.
 
 <br>
 
