@@ -42,7 +42,7 @@ jobs:
         run: trivy image --format sarif --output trivy-results.sarif ${{ secrets.DOCKER_USERNAME }}/my-trivy-image:latest
 
       - name: Scan Docker image for vulnerabilities (JSON)
-        run: trivy image --format json --output trivy-results.json ${{ secrets.DOCKER_USERNAME }}/my-trivy-image:latest
+        run: trivy image --format json --severity HIGH,CRITICAL -o trivy-results.json ${{ secrets.DOCKER_USERNAME }}/my-trivy-image:latest
 
       - name: Print json file
         run: cat trivy-results.json
