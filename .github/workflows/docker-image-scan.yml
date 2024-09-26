@@ -42,17 +42,26 @@ jobs:
           sudo apt-get install trivy
           
       # 5. Docker 이미지 취약점 스캔
-      - name: Scan Docker image for vulnerabilities
+      - name: Scan Docker image for vulnerabilities(sarif)
         run: trivy image --format sarif --output trivy-results.sarif ${{ secrets.DOCKER_USERNAME }}/my-trivy-image:latest
+
+      - name: Scan Docker image for vulnerabilities (JSON)
+        run: trivy image --format json --severity HIGH,CRITICAL -o trivy-results.json ${{ secrets.DOCKER_USERNAME }}/my-trivy-image:latest
+
+      - name: Print json file
+        run: cat trivy-results.json
 
       # 6. 위험, 크리티컬 개수를 변수로 지정
       - name: Check for critical/high vulnerabilities
         id: scan
         run: |
-          critical=$(jq '.runs[].results[] | select(.level == "error" and .ruleId == "CRITICAL")' trivy-results.sarif | wc -l)
-          high=$(jq '.runs[].results[] | select(.level == "error" and .ruleId == "HIGH")' trivy-results.sarif | wc -l)
+          critical=$(jq '[.Results[] | select(.Vulnerabilities != null) | .Vulnerabilities[] | select(.Severity == "CRITICAL")] | length' trivy-results.json)
+          high=$(jq '[.Results[] | select(.Vulnerabilities != null) | .Vulnerabilities[] | select(.Severity == "HIGH")] | length' trivy-results.json)
+          echo "Critical vulnerabilities: $critical"
+          echo "High vulnerabilities: $high"
           echo "::set-output name=critical_count::$critical"
           echo "::set-output name=high_count::$high"
+
 
       # 7. 위험, 크리티컬 개수를 슬랙으로 전송
       - name: Send Slack notification
