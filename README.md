@@ -19,6 +19,7 @@
 **1. 개발자가 코드를 push하면 git action이 실행됩니다.**<br>
 **2. 도커 이미지가 빌드되고 trivy로 취약점을 분석합니다.**<br>
 **3. 취약점 발견 시 슬랙으로 알람이 오고, 상세 취약점은 코드 스캐너에서 확인할 수 있습니다.**
+<br>
 
 ## 🕶 Trivy 선택한 이유
 ### Why Trivy?
@@ -196,6 +197,7 @@ jobs:
 ## 🍇 Workflow 실행
 ![2024-09-26 10 22 55](https://github.com/user-attachments/assets/304b7382-0838-44f4-b8c9-b1f43dfd3be3)
 
+<br>
 
 ## 🎨 최종 실행 결과
 
@@ -211,4 +213,4 @@ jobs:
 <br>
 
 ## 🧵 결론 및 고찰
-> Trivy를 사용해 앞서 최적화를 진행한 Docker 이미지에 대한 취약점을 직접 진단함으로써 보안 강화의 중요성을 재고했으며, GitHub Actions와 Code scanning 등과 같은 기능을 활용하여 CI 프로세스를 최적화할 수 있었습니다.
+> Trivy를 사용해 앞서 최적화를 진행한 Docker 이미지에 대한 취약점을 직접 진단함으로써 **보안 강화의 중요성**을 재고했으며, GitHub Actions와 Code scanning 등과 같은 기능을 활용하여 **CI 프로세스를 최적화**할 수 있었습니다.
